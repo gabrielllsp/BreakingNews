@@ -1,9 +1,10 @@
-package com.gabriel.breakingnews
-
 import platform.UIKit.UIDevice
 
-class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+actual class Platform{
+    actual val osName: String
+        get() = UIDevice.currentDevice.systemName
+    actual val osVersion: String
+        get() = UIDevice.currentDevice.systemVersion
+    actual val deviceModel: String
+        get() = UIDevice.currentDevice.model
 }
-
-actual fun getPlatform(): Platform = IOSPlatform()
